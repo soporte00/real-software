@@ -1,6 +1,6 @@
-# software
+# Real-software
 
-Micro framework php el cual te ayudará de una forma rápida a crear una página web con los mínimos requerimientos para un buen funcionamiento.
+Real-software es un "micro framework" php el cual te ayudará de una forma rápida a crear una página web con los mínimos requerimientos para un buen funcionamiento.
 
 
 Luego de descargar y copiar el framework, en la carpeta pública de nuestro servidor web, deberemos inicializar y crear
