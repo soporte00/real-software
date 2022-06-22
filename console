@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+
+<?php
+
+define('CONSOLE',true);
+require_once dirname(__FILE__)."/core/autoloader.php";
+
+$console = new \core\console_src\console_loader();
+$console->action($argv[1]);
+?>

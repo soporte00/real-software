@@ -1,0 +1,51 @@
+.arrowup{
+    position: fixed;
+    bottom: 1rem;
+    right: 1.5rem;
+    color: rgba(50,50,120,.5);
+}
+
+.max15{max-width: 15rem;}.max20{max-width: 20rem;}.max25{max-width: 25rem;}.max30{max-width: 30rem;}.max35{max-width: 35rem;}
+
+
+
+.card{
+    display:block;
+    padding: .5rem;
+}
+
+.card-description{
+    font-family: "Courier New", Courier, monospace;
+    width: 100%;
+    display:block;
+    /* background-color: blue;  */
+    margin-bottom: 1rem;
+    font-size: .8rem;
+    font-weight: 900;
+    white-space: nowrap;
+    user-select:none;
+}
+
+.underlined{
+    border-width: .15rem;
+    border-color: rgba(100,100,150,.4);
+    border-style:none none solid none;
+}
+
+.card__section{
+    display:block;
+    /* background-color: aqua; */
+    width: 100%;
+    margin:1rem 0;
+    padding: .3rem;
+}
+
+.card__input-label{
+    font-family: "Courier New", Courier, monospace;
+    width: 100%;
+    display:block;
+    font-size: .6rem;
+    font-weight: 900;
+    white-space: nowrap;
+	user-select:none;  
+}

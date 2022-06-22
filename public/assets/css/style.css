@@ -1,0 +1,15 @@
+/*style OBJ*/
+.st-fine{background-color:#208020; color:#efefef;}
+.st-warning{background-color:#ff9000; color:#222222;}
+.st-danger{background-color:#802020; color:#efefef;}
+.st-classic{background:#ffffff; color:var(--bodyText); border:1px solid #aaa;}
+.st-normal{background: var(--headerText); color: var(--headerBack);}
+.st-discrete{background: var(--cC); color:var(--cD);}
+.st-lucid{background: var(--cC); color:var(--cL);}
+.st-highlight{background-color:rgba(255,255,255,.6);}
+
+.b{font-weight: bold;}
+
+.radius{border-radius: 3px;}
+.shadow{border: 1px solid transparent; border-radius: 0.2rem; box-shadow: 0px 2px 2px #aaa;}
+.pointer{cursor: pointer;}

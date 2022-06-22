@@ -1,0 +1,29 @@
+body{
+    display: grid;
+    grid-template-rows: 4rem 1fr;
+}
+
+.main__header{
+    position:fixed;
+    top:0;
+    left:0;
+    grid-row: 1;
+    height: 4rem;
+    width: 100vw;
+    background-color: var(--headerBack);
+    z-index: 1;
+}
+
+.main__header--title{
+    display: inline-block;
+    margin:1.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+
+.main__content{
+    grid-row: 2;
+    padding: .3rem;
+    height: 100vh;
+}

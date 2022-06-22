@@ -1,0 +1,48 @@
+.alertbox__container{
+	font-size: 14px;
+	position:fixed;
+	top:85px;
+	right:20px;
+	z-index:1000;
+	height:1px;
+}
+
+.alertbox__close{
+	font-family: sans-serif;
+	position:absolute;
+	top:-.2em;
+	right: .3em;
+	font-size:.8em;
+	font-weight: normal;
+	cursor: pointer;
+	background:none;
+	outline: none;
+	padding:2px;
+	color:#eee;
+	border:0;
+}
+
+.alertbox__mssg{
+	color:#fff; 
+	margin:5px 0px;
+	display:block;
+	position:relative;
+	padding:0.7em 1.2em .2em 1em;
+	border-radius:3px;
+	min-width:150px;
+	max-width:270px;
+	min-height:2em;
+	text-align: center;
+	opacity:1;
+	transition:opacity .7s linear;
+}
+
+.alertbox__mssg--ok{
+	background-color:#44a; 
+}
+
+.alertbox__mssg--error{
+	background-color:#a44;	
+}
+
+.alertbox__hidden{opacity: 0;}
