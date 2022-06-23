@@ -171,7 +171,17 @@ class dbManager extends dbConfig
 
 
 
-	public function update(string $table,string $set, string $where,array $bind = null){
+	public function update(string $table,$set,string $where,array $bind = null){
+
+		if(is_array($set)){		
+			$columns=[];
+
+			foreach($set as $k => $v){
+				array_push($columns,$k.'=:'.$k);
+			}
+			$set = implode(',',$columns);
+		}
+
 		return $this->run("UPDATE {$this->config_prefix}{$table} SET {$set} WHERE $where",$bind);
 	}
 
