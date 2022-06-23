@@ -23,7 +23,7 @@ class logmaker{
             return false;
         }
         
-        session::Put('LOG',session::Read('LOG').$log);
+        session::Put('LOG',session::Read('LOG')."\n".$log);
     }
 
 }

@@ -75,8 +75,7 @@ class dbManager extends dbConfig
 			
 			return $response;
 		}catch(PDOException $e){
-			logmaker::create($e->getMessage());
-			logmaker::create('->'.$query);
+			logmaker::create($e->getMessage()."\n->".$query);
 		}		
 	}
 
