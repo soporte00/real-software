@@ -37,11 +37,15 @@ class console_dataInstaller
 
     public function install()
     {
+        echo "Installing DB\n";
         $this->listFiles('install');
+        echo "Finished\n";
     }
 
     public function uninstall()
     {
+        echo "Deleting DB\n";
         $this->listFiles('uninstall', true);
+        echo "Finished\n";
     }
 }
