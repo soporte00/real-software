@@ -28,7 +28,36 @@ class console_loader extends console_paths{
     }
 
 
+
+
+
+    private function transfer($param){
+
+        $configFile = "server.json";
+        
+        if(!is_file($configFile)){
+            echo "the transfer function is disabled\n";
+            die();
+        }
+
+        $configFile = json_decode(file_get_contents($configFile));
     
+        if($param[1] == 'all'){
+            system('scp -P '.$configFile->port.' -r ./* '.$configFile->user.'@'.$configFile->host.':'.$configFile->endFolder);
+        }elseif($param[1] == 'sync'){
+            system('rsync -avz --exclude-from=\'.gitignore\' --exclude \'server.json\' --delete -e "ssh -p '.$configFile->port.'" ./ '.$configFile->user.'@'.$configFile->host.':'.$configFile->endFolder);
+        }else{
+            echo "Wrong command...\n";
+            echo "Try with php console transfer: all | sync\n";
+            echo "the sync option uses the .gitignore file to exclude files and folders\n";
+        }
+    
+        die();    
+    }
+    
+
+
+
 
     private function make($param){
         echo "Make\n";
