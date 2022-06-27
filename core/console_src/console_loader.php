@@ -33,19 +33,19 @@ class console_loader extends console_paths{
 
     private function transfer($param){
 
-        $configFile = "hostauth.json";
+        $file = "hostauth.json";
         
-        if(!is_file($configFile)){
+        if(!is_file($file)){
             echo "the transfer function is disabled\n";
             die();
         }
 
-        $configFile = json_decode(file_get_contents($configFile));
+        $configFile = json_decode(file_get_contents($file));
     
         if($param[1] == 'all'){
             system('scp -P '.$configFile->port.' -r ./* '.$configFile->user.'@'.$configFile->host.':'.$configFile->endFolder);
         }elseif($param[1] == 'sync'){
-            system('rsync -avz --exclude-from=\'.gitignore\' --exclude \''.$configFile.'\' --delete -e "ssh -p '.$configFile->port.'" ./ '.$configFile->user.'@'.$configFile->host.':'.$configFile->endFolder);
+            system('rsync -avz --exclude-from=\'.gitignore\' --exclude \''.$file.'\' --delete -e "ssh -p '.$configFile->port.'" ./ '.$configFile->user.'@'.$configFile->host.':'.$configFile->endFolder);
         }else{
             echo "Wrong command...\n";
             echo "Try with php console transfer: all | sync\n";
