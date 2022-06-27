@@ -33,7 +33,7 @@ class console_loader extends console_paths{
 
     private function transfer($param){
 
-        $configFile = "server.json";
+        $configFile = "hostauth.json";
         
         if(!is_file($configFile)){
             echo "the transfer function is disabled\n";
