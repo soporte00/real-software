@@ -45,7 +45,7 @@ class console_loader extends console_paths{
         if($param[1] == 'all'){
             system('scp -P '.$configFile->port.' -r ./* '.$configFile->user.'@'.$configFile->host.':'.$configFile->endFolder);
         }elseif($param[1] == 'sync'){
-            system('rsync -avz --exclude-from=\'.gitignore\' --exclude \'server.json\' --delete -e "ssh -p '.$configFile->port.'" ./ '.$configFile->user.'@'.$configFile->host.':'.$configFile->endFolder);
+            system('rsync -avz --exclude-from=\'.gitignore\' --exclude \''.$configFile.'\' --delete -e "ssh -p '.$configFile->port.'" ./ '.$configFile->user.'@'.$configFile->host.':'.$configFile->endFolder);
         }else{
             echo "Wrong command...\n";
             echo "Try with php console transfer: all | sync\n";
