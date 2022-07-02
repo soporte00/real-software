@@ -22,27 +22,47 @@ class tools{
 	}
 
 
-    public static function sendMail($address,$subject,$content)
+	public static function sendMail($address,$subject,$content)
     {
+
+		$css=file_get_contents(asset('css/normalize.css'));
+		$css.=file_get_contents(asset('css/structures.css'));
+		$css.=file_get_contents(asset('css/style.css'));
+
 		$content = "<html>
 				<head>
-				  <title>Free-framework AMS</title>
+					<style>".$css."</style>
 				</head>
-				<body>".$content."
+				<body>
+	
+					<h2>".GENERAL['sitename']."</h2>
+					<div class='container padd2'>
+
+						<div class='container padd st-warning'>¡ Aviso importante !</div>
+						<br>
+						<div class='centered padd2 b'>".$content."</div>
+					</div>
 				</body>
 				</html>";
 
 		// Para enviar un correo HTML, debe establecerse la cabecera Content-type
-		$mail_headers  = 'MIME-Version: 1.0' . "\r\n";
-		$mail_headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+		$mail_headers  = "MIME-Version: 1.0\r\n";
+		$mail_headers  .= "Content-type: text/html; charset=utf-8\r\n";
 
 		// Cabeceras adicionales
 		//$mail_headers .= 'To: receiver@example.com'. "\r\n";
-		$mail_headers .= 'From: Free-Framework <soporte@freeframework.net>' . "\r\n";
+		$mail_headers .= "From: ".GENERAL['sitename']." <".GENERAL['supportEmail'].">\r\n";
 		//$mail_headers .= 'Cc: example@example.com' . "\r\n";
 		//$mail_headers .= 'Bcc: example-bis@example.com' . "\r\n";
 
-		return mail($address, $subject, $content, $mail_headers);
+
+			
+		if(!mail($address, $subject, $content, $mail_headers)){
+			mssg('No se pudo enviar el correo','e');
+			return false;
+		}
+
+		return true;
 	}
 
 
