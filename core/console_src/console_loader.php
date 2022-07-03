@@ -6,7 +6,7 @@ class console_loader{
 
     use console_paths;
 
-    private $version='1.2.4';
+    private $version='1.2.5';
 
     public function action($command){
 
