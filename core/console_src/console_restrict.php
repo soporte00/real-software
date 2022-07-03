@@ -18,8 +18,10 @@ class console_restrict{
 
 
     public function debug_mode($flag){
-        require_once $this->configFolder."env.php";
 
+        if(!is_file($this->configFolder."env.php")) return;
+
+        require_once $this->configFolder."env.php";
 
         if(!DEBUG){
            
