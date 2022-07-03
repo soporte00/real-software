@@ -5,11 +5,11 @@ use core\console_src\console_files;
 
 class console_loader extends console_paths{
 
-    private $version='1.2.0';
+    private $version='1.2.2';
 
-    public function action($param){
+    public function action($command){
 
-        $param = explode(':',$param);
+        $param = explode(':',$command[1]);
 
         if($param[0] == 'version'){
             echo "\nConsole version: {$this->version}\n";
@@ -19,7 +19,7 @@ class console_loader extends console_paths{
         if(method_exists($this,$param[0])){
             $method = $param[0];
 
-            $this->$method($param);
+            $this->$method($param, isset($command[2])?$command[2]:null  );
             die();
         }
 
@@ -31,7 +31,7 @@ class console_loader extends console_paths{
 
 
 
-    private function transfer($param){
+    private function transfer($param,$flag=null){
 
         $file = "hostauth.json";
         
@@ -59,7 +59,7 @@ class console_loader extends console_paths{
 
 
 
-    private function make($param){
+    private function make($param,$flag=null){
         echo "Make\n";
 
         if(
@@ -81,8 +81,16 @@ class console_loader extends console_paths{
 
 
 
-    private function database($param){
+    private function database($param,$flag=null){
+
         echo "Database\n";
+
+
+        /**
+         * restrict on debug mode OFF
+         */
+        console_restrict::set()->debug_mode($flag);
+
 
         if(
             $param[1] && (
@@ -120,8 +128,14 @@ class console_loader extends console_paths{
 
 
 
-    private function init(){
+    private function init($param,$flag=null){
         echo "Init\n";
+
+        /**
+         * restrict on debug mode OFF
+         */
+        console_restrict::set()->debug_mode($flag);
+
         new console_init();
     }
 
@@ -133,7 +147,7 @@ class console_loader extends console_paths{
 
 
 
-    private function remove($param){
+    private function remove($param,$flag=null){
         echo "Remove\n";
 
         if($param[1] == 'database'){
@@ -153,6 +167,14 @@ class console_loader extends console_paths{
             die();
 
         }elseif($param[1] == 'mvc'){
+
+
+            /**
+             * restrict on debug mode OFF
+             */
+            console_restrict::set()->debug_mode($flag);
+
+
             console_files::remove($this->controllerFolder.$param[2].'Controller.php');
             console_files::remove($this->modelFolder.$param[2].'Model.php');
             console_files::delDir($this->viewFolder.$param[2]);
