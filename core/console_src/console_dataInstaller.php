@@ -1,33 +1,29 @@
 <?php namespace core\console_src;
 
 
-// ignore_user_abort(true);
-// set_time_limit(0);
-
 class console_dataInstaller
 {
 
-    private $databaseFolder = [];
+    use console_paths;
+
+    private $filesInFolder = [];
 
     public function __construct()
     {
-        $this->databaseFolder = glob('./database/*');
+        $this->filesInFolder = glob($this->databaseFolder.'*');
     }
 
     private function listFiles($method, $reverse = false)
     {
 
-        if ($reverse) $this->databaseFolder = array_reverse($this->databaseFolder);
+        if ($reverse) $this->filesInFolder = array_reverse($this->filesInFolder);
 
-        foreach ($this->databaseFolder as $k) {
+        foreach ($this->filesInFolder as $k) {
 
-            $script = "/^[a-zA-Z.\/]+(db[0-9]+_[a-zA-Z0-9_-]+).php$/";
+            preg_match('/^\.\/([a-zA-Z.\/]+)(db[0-9]+_[a-zA-Z0-9_-]+).php$/', $k, $match);
 
-            preg_match($script, $k, $match);
+            $f =  str_replace('/','\\',$match[1]).$match[2];
 
-            echo $method.'-';
-
-            $f = '\database\\' . $match[1];
             $c = new $f();
             $c->$method();
 

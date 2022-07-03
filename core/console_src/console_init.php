@@ -1,10 +1,11 @@
 <?php namespace core\console_src;
 
-use core\console_src\console_paths;
 use core\console_src\console_files;
 use core\console_src\console_templates;
 
-class console_init extends console_paths{
+class console_init{
+
+    use console_paths;
 
     public function __construct()
     {

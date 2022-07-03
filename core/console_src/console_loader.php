@@ -1,11 +1,12 @@
 <?php namespace core\console_src;
 
-use core\console_src\console_paths;
 use core\console_src\console_files;
 
-class console_loader extends console_paths{
+class console_loader{
 
-    private $version='1.2.2';
+    use console_paths;
+
+    private $version='1.2.4';
 
     public function action($command){
 
@@ -146,7 +147,9 @@ class console_loader extends console_paths{
 
 
 
-
+    /**
+     * Remove function
+     */
     private function remove($param,$flag=null){
         echo "Remove\n";
 

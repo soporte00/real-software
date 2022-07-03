@@ -1,8 +1,9 @@
 <?php namespace core\console_src;
 
-use core\console_src\console_paths;
 
-class console_restrict extends console_paths{
+class console_restrict{
+
+    use console_paths;
 
     public static $i;
 

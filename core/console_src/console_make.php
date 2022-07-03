@@ -3,11 +3,10 @@
 
 use \core\console_src\console_files;
 use \core\console_src\console_templates;
-use \core\console_src\console_paths;
 
-class console_make extends console_paths{
+class console_make{
 
-
+    use console_paths;
 
     public function __construct($method,$param)
     {   
