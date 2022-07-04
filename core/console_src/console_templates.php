@@ -324,7 +324,7 @@ class '.$prefix.$table.'{
     public static function default404(){
         $text='<?php
     http_response_code(404);
-    self::html();
+    self::html(["title"=>"Error 404 Página no encontrada"]);
 ?>
 
 <?=self::body()?>
@@ -332,7 +332,7 @@ class '.$prefix.$table.'{
 <div class="centered-column padd4">
     <img src="<?= asset(\'img/icons/tool.svg\') ?>" width="30px">
     <h4>ERROR 404. No se encontró la página.</h4> 
-    <a href="<?=route()?>" title="Volver a la página principal">Pág. princpal</a>
+    <a href="<?=route()?>" title="Volver a la página principal">Pág. principal</a>
 </div>
 
 <?=self::end()?>';
@@ -347,14 +347,17 @@ class '.$prefix.$table.'{
 
 
     public static function defaultdeny(){
-        $text='<?=self::html()?>
+        $text='<?php
+    http_response_code(403);
+    self::html(["title"=>"Error 403 acceso restringido"]);
+?>
 
 <?=self::body()?>
 
 <div class="centered-column padd4">
     <img src="<?= asset(\'img/icons/tool.svg\') ?>" width="30px">
     <h4>Permiso denegado.</h4> 
-    <a href="<?=route()?>" title="Volver a la página principal">Pág. princpal</a>
+    <a href="<?=route()?>" title="Volver a la página principal">Pág. principal</a>
 </div>
 
 <?=self::end()?>';
