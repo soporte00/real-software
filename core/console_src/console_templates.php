@@ -322,7 +322,10 @@ class '.$prefix.$table.'{
 
 
     public static function default404(){
-        $text='<?=self::html()?>
+        $text='<?php
+    http_response_code(404);
+    self::html();
+?>
 
 <?=self::body()?>
 
