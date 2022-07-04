@@ -17,11 +17,11 @@ class render
 		 * default metatags
 		 */
 		$tags = [
-			"lang" => 'en_EN',
+			"lang" => GENERAL['sitelang'],
 			"title" => GENERAL['sitename'],
 			"type" => 'website', // website - article
-			"description" => 'This is a small framework very light and versatile', // 140 -160 max characters
-			"keywords" => 'Micro FrameWork',
+			"description" => GENERAL['sitedescription'], // 140 -160 max characters
+			"keywords" => GENERAL['sitekeywords'],
 			"url" => URL,
 		];
 
@@ -85,8 +85,6 @@ render::default('bodyend.php');
 	/**
 	 * Json out
 	 */
-
-
 	public static function json(){
 		if(!self::$i instanceof self){
 			self::$i = new self;

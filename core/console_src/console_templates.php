@@ -39,9 +39,13 @@ define("DEBUG",true);
  * General configurations
  */
 define("GENERAL",[
-    "sitename"=>"software",
-    "version"=>"unstable 1.0.0",
-    "onlogin"=>"/dashboard"
+	"sitelang"=>"es_ES",
+	"sitename"=>"software",
+	"sitedescription"=>"Real-Software es un micro framework, diseñado para pequeñas aplicaciones.",
+	"sitekeywords"=>"Real-Software, Real, Software, framework",
+	"onlogin"=>"/dashboard",
+	"version"=>"unstable 1.0.0",
+	"supportEmail"=>"support@real-software.net"
 ]);
 
 /**
