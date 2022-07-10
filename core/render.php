@@ -111,6 +111,8 @@ render::default('bodyend.php');
 		];
 
 		echo json_encode($r);
+
+		die();
 	}
 
 }
