@@ -57,12 +57,7 @@ class tools{
 
 
 			
-		if(!mail($address, $subject, $content, $mail_headers)){
-			mssg('No se pudo enviar el correo','e');
-			return false;
-		}
-
-		return true;
+		return mail($address, $subject, $content, $mail_headers);
 	}
 
 
