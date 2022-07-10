@@ -1,7 +1,19 @@
 <?php namespace core\console_src;
 
 class console_templates{
+    use console_paths;
 
+    public static $i;
+
+    public static function st(){
+    
+        if(self::$i instanceof self){
+            return self::$i;
+        }
+        self::$i = new self;
+    
+        return self::$i;
+    }
 
     public static function dbConfig(){
         $text = '<?php namespace config;
@@ -152,10 +164,13 @@ class {$module}Controller{
     
     public static function model($module=''){
 
+
     /**
     * Model content
     */
-    $text = "<?php\n
+    $modelNameSpace = self::st()->nspace('modelFolder');
+
+    $text = "<?php namespace {$modelNameSpace};\n
 use core\dbManager;
 
 class {$module}Model extends dbManager{
@@ -180,14 +195,6 @@ class {$module}Model extends dbManager{
     
         return $text;
     }
-
-
-
-
-
-
-
-
 
 
 
